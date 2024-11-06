@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Veterinaria Amigo Fiel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Blog - Veterinaria Amigo Fiel</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Entradas del Blog</h2>
+            
+            <article>
+                <h3>Alimentación saludable para tu mascota</h3>
+                <img src="images/alimentacion.jpg" alt="Alimentación saludable" class="clickable-img">
+                <p>La alimentación adecuada es fundamental para la salud de tu mascota. Aquí te damos algunos consejos sobre los tipos de alimentos que puedes incluir en su dieta diaria.</p>
+            </article>
+
+            <article>
+                <h3>Cuidados básicos para una mascota feliz</h3>
+                <img src="images/cuidado.jpg" alt="Cuidado de mascotas" class="clickable-img">
+                <p>Los cuidados básicos de una mascota incluyen baños regulares, cortes de uñas y revisiones veterinarias. Descubre cómo mantener a tu mascota en óptimas condiciones de salud.</p>
+            </article>
+
+            <article>
+                <h3>Prevención de enfermedades comunes en mascotas</h3>
+                <img src="images/enfermedades.jpg" alt="Prevención de enfermedades" class="clickable-img">
+                <p>Las enfermedades más comunes en mascotas, como parvovirus y moquillo, pueden prevenirse con vacunas y cuidados específicos. Aquí te contamos todo lo que debes saber para proteger a tu mascota.</p>
+            </article>
+        </section>
+    </main>
+
+    <!-- Modal para mostrar imágenes en tamaño completo -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Veterinaria Amigo Fiel</p>
+    </footer>
+
+    <script>
+        // Obtener elementos del modal
+        const modal = document.getElementById("modal");
+        const modalImage = document.getElementById("modal-image");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        // Agregar evento a cada imagen con clase 'clickable-img'
+        document.querySelectorAll(".clickable-img").forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImage.src = this.src;
+            }
+        });
+
+        // Cerrar el modal al hacer clic en la 'X'
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cerrar el modal al hacer clic fuera de la imagen
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
